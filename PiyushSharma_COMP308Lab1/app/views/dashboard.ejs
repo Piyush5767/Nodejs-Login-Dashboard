@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all" />
+</head>
+<body>
+
+<div class="col-md-12">
+	<div class="container">
+		<%if (usertype == "admin") { %>
+			<div class="row">
+				<div class="col-md-10" style="padding-top:50px">
+					<style>
+					table {
+						font-family: arial, sans-serif;
+						border-collapse: collapse;
+						width: 100%;
+					}
+
+					td, th {
+						border: 1px solid #dddddd;
+						text-align: left;
+						padding: 8px;
+					}
+
+					tr:nth-child(even) {
+						background-color: #dddddd;
+					}
+					</style>			
+					<h2>Registered Customers <a href="/signout" style="float:right;font-size: 11px;" class="btn btn-primary">Sign Out</a></h2>
+					<table>
+					  <tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Favourite Sports</th>
+						<th>Course Of Study</th>
+						<th>User Type</th>
+						<th>View Feedback</th>
+					  </tr>
+						<% for (var item in users) { 
+							var val = users[item];
+						%>		
+						  <tr>
+							<td><%= val.firstName %> <%= val.lastName %></td>
+							<td><%= val.email %></td>
+							<td><%= val.favSport %></td>
+							<td><%= val.csofstudy %></td>
+							<td><%= val.userType %></td>
+							<td><a target="_blank" href="/dashboard/user/feedback/<%= val._id %>" >View </a></td>
+						  </tr>				
+						<%  } %>					 
+					</table>
+				</div>	
+				<div class="col-md-2"></div>
+			</div>				
+		<%}else{%>
+			<div class="row">
+				<div class="col-md-7">
+					<div class="contact_form" style="padding-top: 20px;">
+						<h3 class="heading"><strong>Feedback</strong> Form 
+                            <span style="float:right;">
+                                <a href="/dashboard/comment-history" style="font-size: 11px;" class="btn btn-success">Comment History</a>
+                                <a href="/signout" style="font-size: 11px;" class="btn btn-primary">Sign Out</a>
+                            </span>
+						</h3>
+                        <h4>Welcome: </h4>
+						<div class="con_form">
+							<form action="/thankyou" method="post" id="contactFrm" name="contactFrm">		
+								<input name="userid" type="hidden" value="<%= userid %>">
+								<input name="date" type="hidden" value="<%= date %>">
+								<div class="form-group row">
+								  <label for="example-email-input" class="col-2 col-form-label">Email</label>
+								  <div class="col-10">
+									<input class="form-control" type="email" value="<%= email %>" disabled>
+								  </div>
+								</div>
+								<div class="form-group row">
+								  <label for="example-url-input" class="col-2 col-form-label">Feedback</label>
+								  <div class="col-10">
+									<textarea class="form-control" required name="comment" placeholder="Comments" rows="3"></textarea>
+								</div>
+								</div> 
+								<div class="form-group row">
+								  <div class="offset-sm-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">Submit Feedback</button>
+								  </div>
+								</div>
+							</form>
+						</div>                    	
+					</div>              
+				</div>
+			</div>
+		<%}%>
+	</div>
+</div>
+</body>
+</html>

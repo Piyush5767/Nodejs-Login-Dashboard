@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all" />
+	<style>
+	.card-block {
+		padding: 10px;
+	}
+	</style>
+</head>
+<body>
+<div class="col-md-12">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10" style="padding-top:50px">
+				<h3>Feedback</h3>
+				<div class="card">
+				  <div class="card-header">
+					Feedback Submitted By User
+				  </div>
+				  <% for (var item in feedbacks) { 
+					var val = feedbacks[item];
+				  %>	
+				  <div class="card-block">
+					<blockquote class="card-blockquote">
+					  <p><%= val.comment; %></p>
+					  <footer>Submitted Date: <cite title="Source Title"><%= val.date; %></cite></footer>
+					</blockquote>
+				  </div>
+				  <%  } %>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

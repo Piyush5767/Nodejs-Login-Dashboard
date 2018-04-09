@@ -1,0 +1,3 @@
+c:\users\aspire\Source\Repos\PiyushSharma_COMP308Lab1\PiyushSharma_COMP308Lab1\obj\Debug\PiyushSharma_COMP308Lab1.njsprojResolveAssemblyReference.cache
+c:\users\aspire\Source\Repos\PiyushSharma_COMP308Lab1\PiyushSharma_COMP308Lab1\obj\Debug\PiyushSharma_COMP308Lab1.njsproj.CoreCompileInputs.cache
+c:\users\aspire\Source\Repos\PiyushSharma_COMP308Lab1\PiyushSharma_COMP308Lab1\bin\Microsoft.NodejsTools.WebRole.dll
